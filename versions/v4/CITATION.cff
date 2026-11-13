@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this work, cite it."
+title: "Reflection-symmetric diagonal synthesis: resolving a conjecture of Huang, Kosugi, Nishi and Matsushita"
+authors:
+  - name: "Haobo Ma"
+  - name: "Wenlin Zhang"
+date-released: "2026-11-05"
+version: "4"
+url: "https://mathesis-omega-research.apps.chrono-ai.fun/papers/huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound?version=4"
+doi: "10.5281/zenodo.23885961"
+license: "CC-BY-4.0"

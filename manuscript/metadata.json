@@ -1,0 +1,15 @@
+{
+  "id": "huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound",
+  "revision": 4,
+  "problem_ids": ["huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound"],
+  "topic": "Worst-case exact ancilla-free CNOT synthesis of reflection-symmetric diagonal unitaries",
+  "title": "Reflection-symmetric diagonal synthesis: resolving a conjecture of Huang, Kosugi, Nishi and Matsushita",
+  "creators": [
+    {"name": "Haobo Ma", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Wenlin Zhang", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "Combined with the upper bound of Huang, Kosugi, Nishi and Matsushita [J. Phys. Soc. Jpn. 93, 054002 (2024); arXiv:2310.06676v2], this resolves their Section 6 conjecture that 2^(2n-1)+2n-2 CNOTs are optimal in the worst case for exact ancilla-free CNOT/R_z synthesis of reflection-symmetric diagonal unitaries on 2n qubits. The explicit hard instance has phase pi/2 at the all-zero and all-one strings. Multiplicative characters force every nonzero even parity; birth-span dimension and return conservation give the linear term. The same substitution gives the unrestricted 2dn-wire count, but not depth optimality or radial-potential optimality.",
+  "summary": "Self-contained exposition of the pinned upstream lower-bound proof resolving the Section 6 conjecture of Huang, Kosugi, Nishi and Matsushita when combined with their matching synthesis algorithm. Includes exact finite checks and a precise distinction between the unrestricted higher-dimensional count and the remaining depth and radial-potential questions.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/02c695f8c17e35965f80603427074b1dd434eed9/D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.lean"
+}

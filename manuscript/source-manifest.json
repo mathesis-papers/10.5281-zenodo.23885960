@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "source_revision": "02c695f8c17e35965f80603427074b1dd434eed9",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4312,
+      "sha256": "a2759994d6c85258d6749bf796868229a3beb0be8d5a370d8123aa8d076acc8e"
+    },
+    {
+      "path": "checks.py",
+      "bytes": 6250,
+      "sha256": "797d8574e48bda29b4d9cb23e46a4ded73ed6617d87ab6db001765d78b5b1db5"
+    },
+    {
+      "path": "metadata.json",
+      "bytes": 1857,
+      "sha256": "f82c7c58f43bd842d481ed868af2e4dfe17e6348154ef5e7799050db4735f3fb"
+    },
+    {
+      "path": "note.tex",
+      "bytes": 13095,
+      "sha256": "17b6f70419c1bf4bf31e637ca3fc8789f6b7160d65bf72a304e7172733127543"
+    },
+    {
+      "path": "sources/ReflectionDiagonalCNOTLowerBound.lean",
+      "bytes": 23550,
+      "sha256": "12d8ee548fb5b263aba0d0a60bc42a2b29463570ae4a260149167da053ccd07d"
+    },
+    {
+      "path": "sources/ReflectionDiagonalParityCounting.lean",
+      "bytes": 12998,
+      "sha256": "92b1d1b509fd0e07f72af5b002fbbf609997956e9a7fd612d685780ace732195"
+    },
+    {
+      "path": "sources/UPSTREAM-LICENSE",
+      "bytes": 11349,
+      "sha256": "45404ee75576b053a86e89e545fd6987a607107cf4d846fa78dcb6a233d53447"
+    },
+    {
+      "path": "sources/lake-manifest.json",
+      "bytes": 3215,
+      "sha256": "8550e44937f85a9be196a2917a075eeb8c22bf6c15baa83e72017c6fc4437a8e"
+    },
+    {
+      "path": "sources/lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "verification.json",
+      "bytes": 4215,
+      "sha256": "7efaeee060fe9bbf99245a34459d004f8f049917344d86a8d9d6755809ecbf5e"
+    }
+  ]
+}

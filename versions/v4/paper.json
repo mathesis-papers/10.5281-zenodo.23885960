@@ -1,0 +1,62 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 81098,
+      "matches_public": null,
+      "path": "paper.pdf",
+      "public_sha256": null,
+      "sha256": "8d00a9ce0fa2f9d5840c5fbb52ea033260f6f69ba59f27138c8d4671c760f6b1"
+    },
+    "source": {
+      "bytes": 26901,
+      "matches_public": null,
+      "path": "manuscript/",
+      "public_sha256": null,
+      "sha256": "76b2a0c39560d94ce4fb33706f03cf4c151e935661119862df985e05bf29e7a1"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "Combined with the upper bound of Huang, Kosugi, Nishi and Matsushita [J. Phys. Soc. Jpn. 93, 054002 (2024); arXiv:2310.06676v2], this resolves their Section 6 conjecture that 2^(2n-1)+2n-2 CNOTs are optimal in the worst case for exact ancilla-free CNOT/R_z synthesis of reflection-symmetric diagonal unitaries on 2n qubits. The explicit hard instance has phase pi/2 at the all-zero and all-one strings. Multiplicative characters force every nonzero even parity; birth-span dimension and return conservation give the linear term. The same substitution gives the unrestricted 2dn-wire count, but not depth optimality or radial-potential optimality.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": "10.5281/zenodo.23885960",
+    "current_version": 4,
+    "doi": "10.5281/zenodo.23885961",
+    "lean_source": {
+      "revision": "02c695f8c17e35965f80603427074b1dd434eed9",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/02c695f8c17e35965f80603427074b1dd434eed9/D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "url": "/api/v1/collected-papers/huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound/files/pdf?version=4"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-05T08:03:27.229387153Z",
+    "record": "huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound",
+    "repository_name": "6aec384fc2e94f3104cde418",
+    "source": {
+      "url": "/api/v1/collected-papers/huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound/files/source?version=4"
+    },
+    "title": "Reflection-symmetric diagonal synthesis: resolving a conjecture of Huang, Kosugi, Nishi and Matsushita",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-05T08:03:27.229387153Z",
+        "revision": "4",
+        "version": 4
+      }
+    ],
+    "work": "huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound"
+  }
+}

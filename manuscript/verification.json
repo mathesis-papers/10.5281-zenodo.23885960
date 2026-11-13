@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "arithmetic": "integer bit operations and fractions.Fraction only; no floating-point acceptance",
+  "character_and_phase_checks": [
+    {
+      "wires": 2,
+      "nonzero_even_labels": 1,
+      "hard_instance_character_exponents_mod_4": "2 for nonzero even; 0 for odd",
+      "uniform_rotation_angle_over_pi": "-1/2",
+      "global_phase_over_pi": "-1/4",
+      "all_basis_phases_exact": true,
+      "all_distinct_nonzero_label_fibers_checked": true
+    },
+    {
+      "wires": 4,
+      "nonzero_even_labels": 7,
+      "hard_instance_character_exponents_mod_4": "2 for nonzero even; 0 for odd",
+      "uniform_rotation_angle_over_pi": "-1/8",
+      "global_phase_over_pi": "-1/16",
+      "all_basis_phases_exact": true,
+      "all_distinct_nonzero_label_fibers_checked": true
+    },
+    {
+      "wires": 6,
+      "nonzero_even_labels": 31,
+      "hard_instance_character_exponents_mod_4": "2 for nonzero even; 0 for odd",
+      "uniform_rotation_angle_over_pi": "-1/32",
+      "global_phase_over_pi": "-1/64",
+      "all_basis_phases_exact": true,
+      "all_distinct_nonzero_label_fibers_checked": false
+    },
+    {
+      "wires": 8,
+      "nonzero_even_labels": 127,
+      "hard_instance_character_exponents_mod_4": "2 for nonzero even; 0 for odd",
+      "uniform_rotation_angle_over_pi": "-1/128",
+      "global_phase_over_pi": "-1/256",
+      "all_basis_phases_exact": true,
+      "all_distinct_nonzero_label_fibers_checked": false
+    }
+  ],
+  "network_checks": [
+    {
+      "wires": 2,
+      "shortest_cnot_count": 2,
+      "states_discovered": 6,
+      "states_popped": 4,
+      "search": "Unweighted exhaustive breadth-first search; state is ordered wire labels plus visited nonzero even labels",
+      "gate_order": "physical time order; target and control are zero-based",
+      "returned_to_identity": true,
+      "births": 1,
+      "returns": 1,
+      "even_outputs": 1,
+      "rotation_angle_over_pi": "-1/2",
+      "witness": [
+        {
+          "target": 0,
+          "control": 1,
+          "output_label": 3,
+          "rotate_here": true
+        },
+        {
+          "target": 0,
+          "control": 1,
+          "output_label": 1,
+          "rotate_here": false
+        }
+      ]
+    },
+    {
+      "wires": 4,
+      "shortest_cnot_count": 10,
+      "states_discovered": 846783,
+      "states_popped": 837881,
+      "search": "Unweighted exhaustive breadth-first search; state is ordered wire labels plus visited nonzero even labels",
+      "gate_order": "physical time order; target and control are zero-based",
+      "returned_to_identity": true,
+      "births": 3,
+      "returns": 3,
+      "even_outputs": 7,
+      "rotation_angle_over_pi": "-1/8",
+      "witness": [
+        {
+          "target": 0,
+          "control": 1,
+          "output_label": 3,
+          "rotate_here": true
+        },
+        {
+          "target": 1,
+          "control": 2,
+          "output_label": 6,
+          "rotate_here": true
+        },
+        {
+          "target": 0,
+          "control": 1,
+          "output_label": 5,
+          "rotate_here": true
+        },
+        {
+          "target": 3,
+          "control": 2,
+          "output_label": 12,
+          "rotate_here": true
+        },
+        {
+          "target": 3,
+          "control": 0,
+          "output_label": 9,
+          "rotate_here": true
+        },
+        {
+          "target": 1,
+          "control": 3,
+          "output_label": 15,
+          "rotate_here": true
+        },
+        {
+          "target": 1,
+          "control": 0,
+          "output_label": 10,
+          "rotate_here": true
+        },
+        {
+          "target": 0,
+          "control": 2,
+          "output_label": 1,
+          "rotate_here": false
+        },
+        {
+          "target": 3,
+          "control": 0,
+          "output_label": 8,
+          "rotate_here": false
+        },
+        {
+          "target": 1,
+          "control": 3,
+          "output_label": 2,
+          "rotate_here": false
+        }
+      ]
+    }
+  ],
+  "scope": "Finite checks corroborate the general written proof; they do not replace it or execute Lean.",
+  "checker_sha256": "797d8574e48bda29b4d9cb23e46a4ded73ed6617d87ab6db001765d78b5b1db5"
+}

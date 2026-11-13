@@ -1,0 +1,277 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[hidelinks,breaklinks]{hyperref}
+\hypersetup{
+pdftitle={Reflection-symmetric diagonal synthesis: resolving a conjecture of Huang, Kosugi, Nishi and Matsushita},
+pdfauthor={Haobo Ma; Wenlin Zhang}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newcommand{\F}{\mathbb F_2}
+\newcommand{\CNOT}{\operatorname{CNOT}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\wt}{\operatorname{wt}}
+\title{Reflection-symmetric diagonal synthesis:\newline
+resolving a conjecture of Huang, Kosugi,\newline Nishi and Matsushita}
+\author{Haobo Ma\thanks{ChronoAI Pte Ltd, Singapore.}\and
+Wenlin Zhang\thanks{National University of Singapore; ChronoAI Pte Ltd, Singapore.}}
+\date{1 November 2026\\[0.4em]
+\small Licensed under \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}}
+\begin{document}
+\maketitle
+\begin{abstract}
+Combined with the upper bound of Huang, Kosugi, Nishi and Matsushita
+[J.\ Phys.\ Soc.\ Jpn.\ \textbf{93}, 054002 (2024);
+arXiv:2310.06676v2], this resolves the conjecture stated in their
+Sect.~6 that $2^{2n-1}+2n-2$ CNOTs are optimal in the worst case.
+For every $n\geq1$, an explicit reflection-symmetric diagonal unitary on
+$2n$ qubits requires at least $2^{2n-1}+2n-2$ CNOT gates in any exact,
+ancilla-free circuit over $\{\CNOT,R_z\}$, even up to global phase.
+The hard instance has diagonal entry $\mathrm i$ at the all-zero and
+all-one strings and entry $1$ elsewhere. Multiplicative character
+invariants force all nonzero even parities to occur on rotated wires.
+A birth-and-return argument then gives the additional linear term in
+the CNOT bound. We give a self-contained exposition of the proof in the
+Trureturing source at the cited revision.
+\end{abstract}
+
+\section{The synthesis question}
+How many CNOT gates are needed in the worst case to synthesize a
+reflection-symmetric diagonal unitary? Huang et al.~\cite{HKNM}
+construct circuits on $2n$ wires using $2^{2n-1}+2n-2$ CNOTs and
+conjecture (Sect.~6) that this count is worst-case optimal.
+The explicit hard instance below
+establishes the matching lower bound, by forcing even wire parities
+and counting the gates needed to restore the wires.
+
+Put $m=2n$ and index the computational basis by $x\in\F^m$.
+Write $\bar x=x+\mathbf1$. A real phase function is reflection-symmetric
+when $\theta(\bar x)=\theta(x)$ for every $x$.
+This is exactly the two-register symmetry in Eq.~(1) of
+Huang et al.~\cite{HKNM}: complementing each $n$-bit register index
+complements all $m$ bits. Throughout,
+\[
+ R_z(\varphi)=\diag(e^{-\mathrm i\varphi/2},e^{\mathrm i\varphi/2}),
+ \qquad \varphi\in\mathbb R.
+\]
+The allowed circuits are finite, act on these $m$ wires only, and use
+distinct target and control wires for each CNOT. No ancillary qubits,
+measurements, other gates, or approximation are allowed.
+
+\begin{theorem}\label{thm:main}
+For each $n\geq1$, define $\theta_*:\F^{2n}\to\mathbb R$ by
+\[
+ \theta_*(x)=
+ \begin{cases}\pi/2,&x=0\text{ or }x=\mathbf1,\\0,&\text{otherwise},\end{cases}
+ \qquad D_*=\diag(e^{\mathrm i\theta_*(x)}).
+\]
+Then $\theta_*(\bar x)=\theta_*(x)$. Every allowed circuit with matrix
+$U=cD_*$, for any complex scalar $c$, contains at least
+\[
+ N_m=2^{m-1}+m-2=2^{2n-1}+2n-2
+\]
+CNOT gates.
+\end{theorem}
+
+The scalar is automatically nonzero, indeed of unit modulus, because
+$U$ and $D_*$ are unitary. Theorem~\ref{thm:main} is existential with
+respect to the class of symmetric targets: it does not say that every
+member of that class is hard. The identity is an immediate easy member.
+The lower-bound statement and proof are already present in the
+Trureturing formalization~\cite{upstream}.
+
+Parity networks give a standard description of CNOT/phase circuits.
+Amy, Azimzadeh and Mosca~\cite{AAM}, Sect.~2, define these networks
+with a specified final linear map. Identity parity networks return
+that map to the identity.
+
+Cao et al.~\cite{CLNST} study the graphic case, where the required
+labels have weight two. For a connected graph their lower bound is
+$|E|+|V|-1$. It gives $9$ for the complete graph on four wires.
+Here the weight-four label is also forced, and the lower bound is $10$.
+The argument below treats every nonzero even label and controls
+the freedom to change real phases by multiples of $2\pi$.
+
+\section{Wire labels and multiplicative characters}
+Represent a wire's current Boolean value as $w\cdot x$, with label
+$w\in\F^m$. Initially the labels are the standard basis vectors $e_j$.
+A CNOT with target $t$ and control $c$ replaces $w_t$ by $w_t+w_c$.
+Thus the label matrix stays invertible and its rows never vanish.
+A rotation on a wire labelled $w$ multiplies the basis amplitude by
+\[
+ g(w\cdot x),\qquad g(0)=e^{-\mathrm i\varphi/2},\quad
+ g(1)=e^{\mathrm i\varphi/2}.
+\]
+Induction over the circuit consequently gives a monomial normal form
+\[
+ |x\rangle\longmapsto f(x)|Ax\rangle,\qquad
+ f(x)=\prod_k g_k(w_k\cdot x),\qquad A\in\mathrm{GL}(m,\F).
+\]
+All factors are nonzero. If the circuit is diagonal up to a scalar,
+its nonzero entry on each input cannot change the basis index, so
+$Ax=x$ for every $x$. Hence $A=I$ and the final wire labels are again
+$e_1,\ldots,e_m$.
+
+For any nonzero-valued function $h:\F^m\to\mathbb C$ and any label $v$,
+define
+\[
+ \mathcal I_v(h)=\prod_{x\in\F^m}h(x)^{(-1)^{v\cdot x}}.
+\]
+The exponents are integers $+1$ or $-1$, so negative exponents mean
+multiplicative inverses, not a choice of logarithm or phase branch.
+In particular, $\mathcal I_v(h_1h_2)=\mathcal I_v(h_1)\mathcal I_v(h_2)$.
+
+\begin{lemma}\label{lem:character}
+If $v\ne0$, then $\mathcal I_v(c)=1$ for each constant $c\ne0$.
+If also $w\ne0$ and $w\ne v$, then
+$\mathcal I_v(x\mapsto g(w\cdot x))=1$ for every nonzero-valued
+$g:\F\to\mathbb C$.
+\end{lemma}
+\begin{proof}
+Choose $u$ with $v\cdot u=1$. Pairing $x$ with $x+u$ cancels the
+constant factors in the first assertion. For the second assertion,
+the distinct nonzero vectors $v,w$ are linearly independent over $\F$.
+Therefore the map $x\mapsto(v\cdot x,w\cdot x)$ is onto $\F^2$,
+and there is a $u$ with $v\cdot u=1$ and $w\cdot u=0$.
+The same fixed-point-free pairing preserves $g(w\cdot x)$ and reverses
+its exponent. Each pair contributes $1$.
+\end{proof}
+
+Call $v$ even when $\wt(v)$ is even, equivalently $v\cdot\mathbf1=0$.
+The diagonal function $d_*(x)=e^{\mathrm i\theta_*(x)}$ is $\mathrm i$
+at $0,\mathbf1$ and $1$ elsewhere. For every nonzero even $v$,
+\[
+ \mathcal I_v(d_*)=\mathrm i\,\mathrm i=-1,
+\]
+since both marked strings have dot product zero with $v$.
+If $v$ never occurred on a rotated wire, Lemma~\ref{lem:character}
+would give $\mathcal I_v(f)=1$. But $f=cd_*$ for a realizing circuit,
+so it also gives $\mathcal I_v(f)=\mathcal I_v(c)\mathcal I_v(d_*)=-1$,
+a contradiction. Thus \emph{every nonzero even label must occur on a
+rotated wire}. This argument is insensitive to phase wrapping.
+
+\section{Counting even outputs and returns}
+Let $H=\{v\in\F^m:v\cdot\mathbf1=0\}$. It has dimension $m-1$,
+and contains $2^{m-1}-1$ nonzero vectors. All initial wire labels are
+odd. The first appearance of any even label must therefore be a CNOT
+output; rotations do not change labels. Since a single CNOT produces
+one output label, at least $2^{m-1}-1$ CNOTs have even output.
+
+An update whose target and control labels are both odd is a
+\emph{birth}; its output is even. At every stage, every even label ever
+produced lies in the span of birth outputs produced so far. To prove
+this invariant, initially there are no even labels. An odd--odd update
+adds its birth output as a generator. An even--even update outputs the
+sum of two labels already in the span. The two mixed-parity updates
+produce odd labels, so they add no even label. Unchanged rows preserve
+the invariant. This proves the assertion inductively, including labels
+that later disappear from the current rows.
+
+All nonzero vectors of $H$ must be produced, so the birth outputs span
+$H$. If $B$ is the number of births, this forces $B\geq m-1$.
+Now count the number $E$ of even wire labels currently present:
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+Target before & Control & Output & Change in $E$\\
+\midrule
+odd & odd & even & $+1$ (birth)\\
+even & odd & odd & $-1$ (return)\\
+even & even & even & $0$\\
+odd & even & odd & $0$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The initial and final labels are standard basis rows, so $E$ starts
+and ends at zero. Hence the number $R$ of returns equals $B$, and
+$R\geq m-1$. Returns have odd output and are disjoint from the
+even-output CNOTs already counted. Therefore the total CNOT count is
+\[
+ K\geq (2^{m-1}-1)+R\geq(2^{m-1}-1)+(m-1)=N_m.
+\]
+Together with the complement invariance of $\theta_*$, this proves
+Theorem~\ref{thm:main}.
+
+\begin{corollary}[Using the literature upper bound]
+In the stated model, the worst-case optimal CNOT count among all
+reflection-symmetric diagonal unitaries on $2n$ wires is $N_{2n}$.
+\end{corollary}
+\begin{proof}
+Algorithm 1 of Huang et al.~\cite{HKNM}, Sect.~4 and Appendix C,
+implements every target in the class up to global phase with
+$(2^{2n-1}-1)+(2n-1)=N_{2n}$ CNOTs. This is the literature upper-bound
+premise. Theorem~\ref{thm:main} supplies a target meeting it from below.
+\end{proof}
+
+\paragraph{Higher-dimensional count and remaining questions.}
+For integers $d,n\geq1$, substituting $dn$ for $n$ gives the exact
+worst-case count $2^{2dn-1}+2dn-2$ on $2dn$ wires. In particular,
+the $6n$-wire count $2^{6n-1}+6n-2$ in Sect.~6 of Huang et al.\ is
+sharp for the full class of complement-symmetric diagonal targets.
+Their three-dimensional interaction-potential family, defined by
+Eq.~(5), has additional radial symmetry: the lower bound here does
+not establish worst-case optimality within that narrower family.
+Section~6 also asks for optimal circuit depth. The gate-count proof
+does not determine that depth, since disjoint gates can run in parallel.
+Thus the depth and restricted-potential synthesis questions remain
+unresolved by this argument.
+
+\section{A finite synthesis check}
+With $\chi_v(x)=(-1)^{v\cdot x}$,
+\[
+ \theta_*(x)=\frac{\pi}{2^m}\sum_{v\in H}\chi_v(x).
+\]
+This follows because a character sum over $H$ is $|H|$ on
+$H^\perp=\{0,\mathbf1\}$ and zero elsewhere: outside $H^\perp$,
+translation of the summation index by a vector pairing nontrivially
+with $x$ cancels terms. Rotating once at each nonzero even label by
+$-\pi/2^{m-1}$ thus implements $e^{-\mathrm i\pi/2^m}D_*$ whenever
+the labels return to identity.
+
+Exact breadth-first searches over ordered wire labels and visited
+nonzero even labels give shortest identity-return networks of lengths
+$2$ and $10$ for $m=2$ and $m=4$, respectively. Inserting these rotations
+at each label's first occurrence gives circuits for $D_*$ of those
+lengths. Integer and rational-arithmetic checks also verify every
+hard-instance character and every basis phase in the displayed identity
+for $m=2,4,6,8$. These are finite checks, distinct from the all-$n$
+written proof in Sections~2--3. The pinned declaration
+\texttt{ReflectionDiagonalCNOTLowerBound.result} proves the lower bound;
+worst-case equality additionally uses the cited synthesis upper bound.
+The character and phase checks cover $m=2,4,6,8$, and the shortest-network
+checks cover $m=2,4$. The exact checker and witnesses accompany
+the source package.
+
+\begin{thebibliography}{9}
+\bibitem{HKNM}
+X.~Huang, T.~Kosugi, H.~Nishi and Y.-i.~Matsushita,
+\emph{Optimized Synthesis of Circuits for Diagonal Unitary Matrices
+with Reflection Symmetry}, Journal of the Physical Society of Japan
+\textbf{93}(5), 054002 (2024).
+\href{https://doi.org/10.7566/JPSJ.93.054002}{doi:10.7566/JPSJ.93.054002}.
+\href{https://arxiv.org/abs/2310.06676v2}{arXiv:2310.06676v2},
+Eq.~(1), Algorithm 1, Sect.~6 and Appendix C.
+\bibitem{AAM}
+M.~Amy, P.~Azimzadeh and M.~Mosca,
+\emph{On the CNOT-complexity of CNOT-PHASE circuits},
+published as \emph{On the controlled-NOT complexity of controlled-NOT--phase
+circuits}, Quantum Science and Technology \textbf{4}, 015002 (2019),
+\href{https://doi.org/10.1088/2058-9565/aad8ca}{doi:10.1088/2058-9565/aad8ca};
+\href{https://arxiv.org/abs/1712.01859v2}{arXiv:1712.01859v2}
+(2018), Sect.~2.
+\bibitem{CLNST}
+Y.~Cao, Y.~Lu, J.~Nie, X.~Sun and G.~Tian,
+\emph{Toward Minimum Graphic Parity Networks},
+\href{https://arxiv.org/abs/2509.10070v1}{arXiv:2509.10070v1}
+(2025), Theorem~1.1.
+\bibitem{upstream}
+Trureturing repository contributors, version-pinned sources:
+\href{https://github.com/the-omega-institute/trureturing/blob/02c695f8c17e35965f80603427074b1dd434eed9/D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.lean}{ReflectionDiagonalCNOTLowerBound.lean}
+and
+\href{https://github.com/the-omega-institute/trureturing/blob/02c695f8c17e35965f80603427074b1dd434eed9/D5/S3/Quantum/Magic/ReflectionDiagonalParityCounting.lean}{ReflectionDiagonalParityCounting.lean}.
+The lower bound is \texttt{result : claim} in the first module;
+the second supplies \texttt{count\_bound}.
+\end{thebibliography}
+\end{document}
