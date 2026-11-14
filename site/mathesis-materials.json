@@ -2,12 +2,12 @@
   "schema": "mathesis.materials.v1",
   "work": "huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound",
   "version": 4,
-  "repository_url": "https://github.com/mathesis-papers/6aec384fc2e94f3104cde418",
-  "site_url": "https://papers.trureturing.org/6aec384fc2e94f3104cde418/",
+  "repository_url": "https://github.com/mathesis-papers/10.5281-zenodo.23885960",
+  "site_url": "https://papers.trureturing.org/10.5281-zenodo.23885960/",
   "doi": "10.5281/zenodo.23885961",
   "reading": {
-    "en": "https://papers.trureturing.org/6aec384fc2e94f3104cde418/en/",
-    "zh": "https://papers.trureturing.org/6aec384fc2e94f3104cde418/zh/"
+    "en": "https://papers.trureturing.org/10.5281-zenodo.23885960/en/",
+    "zh": "https://papers.trureturing.org/10.5281-zenodo.23885960/zh/"
   },
   "slides": [],
   "visualizations": []
