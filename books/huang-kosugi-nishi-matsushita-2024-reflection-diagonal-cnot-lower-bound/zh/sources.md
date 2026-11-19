@@ -1,5 +1,3 @@
-<style>pre:has(> code[class*="typst"]) { display: none; }</style>
-
 # 证据、来源与参与
 
 ## 数学证明与形式证据各覆盖什么？
@@ -24,6 +22,10 @@
 
 有兴趣参与者可在相应问题协调范围，在自己的 fork 中开发聚焦分支，并依照[上游贡献规则](https://github.com/the-omega-institute/trureturing/blob/dev/docs/CONTRIBUTING.md)直接向上游 dev 提交 PR。书面结果的作者、原问题作者与后续形式化贡献者分别保留署名。尚待研究的深度问题和径向势子类问题，应与这些已证结果的接口工作区分开。
 
+<section hidden="hidden">
+
 ```{=typst}
 #pagebreak()
 ```
+
+</section>

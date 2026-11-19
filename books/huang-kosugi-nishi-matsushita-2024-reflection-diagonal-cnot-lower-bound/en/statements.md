@@ -1,5 +1,3 @@
-<style>pre:has(> code[class*="typst"]) { display: none; }</style>
-
 # Precise statements and complete argument
 
 ## Objects and allowed circuits
@@ -19,23 +17,35 @@ Connectivity is unrestricted; ancillary qubits, other gates, measurements and ap
 
 ## Two levels of the lower-bound statement
 
+<section hidden="hidden">
+
 ```{=typst}
 #block(breakable: false)[
 ```
+
+</section>
 
 ::: {.theorem #thm-existence title="Existential lower bound for reflection symmetry" lean="D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result" mathesis="collected:huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound:4:s1"}
 For every integer $n\geq1$, there exists a real function $\theta:\mathbb F_2^{2n}\to\mathbb R$ with $\theta(\bar x)=\theta(x)$ such that, for every allowed circuit and every $c\in\mathbb C$, if $U=cD_\theta$, then its CNOT count is at least $2^{2n-1}+2n-2$.
 :::
 
+<section hidden="hidden">
+
 ```{=typst}
 ]
 ```
 
+</section>
+
 This is the full quantifier structure of the public Lean conclusion. The next statement names the target in the source's Theorem 1. It implies the existential conclusion and is the witness actually used inside the Lean proof, but that public conclusion does not name the witness.
+
+<section hidden="hidden">
 
 ```{=typst}
 #block(breakable: false)[
 ```
+
+</section>
 
 ::: {.theorem #thm-explicit title="An explicit hard target" status="written-proof" proof="pf-explicit" doi="10.5281/zenodo.23885961" source="Theorem 1" request="https://github.com/the-omega-institute/trureturing-requests/issues/229" mathesis="collected:huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound:4:s1"}
 For every integer $n\geq1$, put $m=2n$ and define
@@ -57,9 +67,13 @@ N_m=2^{m-1}+m-2.
 $$
 :::
 
+<section hidden="hidden">
+
 ```{=typst}
 ]
 ```
+
+</section>
 
 ## Multiplicative cancellation without phase branches
 
@@ -71,9 +85,13 @@ $$
 
 The exponents are integers $+1$ or $-1$; negative powers mean reciprocals. Finite multiplication gives $\mathcal I_v(h_1h_2)=\mathcal I_v(h_1)\mathcal I_v(h_2)$.
 
+<section hidden="hidden">
+
 ```{=typst}
 #block(breakable: false)[
 ```
+
+</section>
 
 ::: {.lemma #lem-character title="Multiplicative character cancellation" status="written-proof" proof="pf-character" doi="10.5281/zenodo.23885961" source="Lemma 1" request="https://github.com/the-omega-institute/trureturing-requests/issues/230" mathesis="collected:huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound:4:s2"}
 For every integer $m\geq0$ and nonzero $v\in\mathbb F_2^m$, each constant $c\ne0$ satisfies $\mathcal I_v(c)=1$. If also $w\ne0$ and $w\ne v$, then every nowhere-zero $g:\mathbb F_2\to\mathbb C$ satisfies
@@ -83,9 +101,13 @@ $$
 $$
 :::
 
+<section hidden="hidden">
+
 ```{=typst}
 ]
 ```
+
+</section>
 
 ::: {.proof #pf-character}
 Source: Lemma 1, Section 2. Since $v\ne0$, choose $u$ with $v\cdot u=1$. Pair $x$ with $x+u$. This is a fixed-point-free involution reversing the exponent, so constant factors cancel.
@@ -144,17 +166,25 @@ Births have not been added a second time: they already belong to the even-output
 
 ## Exact optimality using the literature construction
 
+<section hidden="hidden">
+
 ```{=typst}
 #block(breakable: false)[
 ```
+
+</section>
 
 ::: {.corollary #cor-optimal title="Exact worst-case CNOT count" status="written-proof" proof="pf-optimal" doi="10.5281/zenodo.23885961" source="Corollary 1" request="https://github.com/the-omega-institute/trureturing-requests/issues/231" mathesis="collected:huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound:4:s3"}
 For every integer $n\geq1$, in the exact ancilla-free CNOT/$R_z$ model above, the maximum over all reflection-symmetric diagonal targets on $2n$ wires of their minimum CNOT counts is $N_{2n}=2^{2n-1}+2n-2$.
 :::
 
+<section hidden="hidden">
+
 ```{=typst}
 ]
 ```
+
+</section>
 
 ::: {.proof #pf-optimal}
 Source: Corollary 1. Algorithm 1 of Huang, Kosugi, Nishi and Matsushita (Section 4 and Appendix C) implements every target satisfying their Eq. (1), up to global phase. It has $2^{2n-1}-1$ blocks each containing one CNOT, together with $2n-1$ standalone CNOTs, totaling $N_{2n}$. Their Eq. (1) is precisely invariance under complementing all bits. Thus every target has a minimum count, bounded above by $N_{2n}$. The target in [@thm-explicit] needs at least $N_{2n}$, so its minimum equals that number. The maximum is attained and equals $N_{2n}$. The upper bound comes from the cited construction; it does not follow from the existential lower bound alone.

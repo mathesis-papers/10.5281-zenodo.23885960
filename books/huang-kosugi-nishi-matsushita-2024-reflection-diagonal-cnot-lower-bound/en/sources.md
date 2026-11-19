@@ -1,5 +1,3 @@
-<style>pre:has(> code[class*="typst"]) { display: none; }</style>
-
 # Evidence, sources and participation
 
 ## What do the proof and formal evidence cover?
@@ -24,6 +22,10 @@ The shared requests track the [explicit hard-target public interface](https://gi
 
 Coordinate a focused contribution on the corresponding issue, develop a branch in your own fork, and submit directly to upstream dev under its [contribution rules](https://github.com/the-omega-institute/trureturing/blob/dev/docs/CONTRIBUTING.md). Original mathematical authors, authors of the earlier question, and subsequent formalization contributors retain their distinct attribution. The unresolved depth and radial-potential questions are separate from interface work for already-proved results.
 
+<section hidden="hidden">
+
 ```{=typst}
 #pagebreak()
 ```
+
+</section>

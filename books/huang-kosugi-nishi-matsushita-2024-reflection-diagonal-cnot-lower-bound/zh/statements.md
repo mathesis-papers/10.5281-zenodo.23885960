@@ -1,5 +1,3 @@
-<style>pre:has(> code[class*="typst"]) { display: none; }</style>
-
 # 精确陈述与完整论证
 
 ## 对象与允许的电路
@@ -19,23 +17,35 @@ $$
 
 ## 下界的两个陈述层次
 
+<section hidden="hidden">
+
 ```{=typst}
 #block(breakable: false)[
 ```
+
+</section>
 
 ::: {.theorem #thm-existence title="反射对称目标的存在性下界" lean="D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result" mathesis="collected:huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound:4:s1"}
 对每个整数 $n\geq1$，存在实函数 $\theta:\mathbb F_2^{2n}\to\mathbb R$，满足 $\theta(\bar x)=\theta(x)$，使得每个上述电路及每个 $c\in\mathbb C$，若 $U=cD_\theta$，则其 CNOT 数至少为 $2^{2n-1}+2n-2$。
 :::
 
+<section hidden="hidden">
+
 ```{=typst}
 ]
 ```
 
+</section>
+
 这是公开 Lean 结论的完整量词形式。下一个陈述给出源文 Theorem 1 指定的目标；它蕴含存在性结论，且确实是上述 Lean 证明内部所选的目标，但公开结论本身不命名这个目标。
+
+<section hidden="hidden">
 
 ```{=typst}
 #block(breakable: false)[
 ```
+
+</section>
 
 ::: {.theorem #thm-explicit title="明确的困难目标" status="written-proof" proof="pf-explicit" doi="10.5281/zenodo.23885961" source="Theorem 1" request="https://github.com/the-omega-institute/trureturing-requests/issues/229" mathesis="collected:huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound:4:s1"}
 对每个整数 $n\geq1$，令 $m=2n$，定义
@@ -57,9 +67,13 @@ N_m=2^{m-1}+m-2.
 $$
 :::
 
+<section hidden="hidden">
+
 ```{=typst}
 ]
 ```
+
+</section>
 
 ## 乘法消去：不选择相位分支
 
@@ -71,9 +85,13 @@ $$
 
 指数为整数 $+1$ 或 $-1$，负次幂指倒数。有限乘积给出 $\mathcal I_v(h_1h_2)=\mathcal I_v(h_1)\mathcal I_v(h_2)$。
 
+<section hidden="hidden">
+
 ```{=typst}
 #block(breakable: false)[
 ```
+
+</section>
 
 ::: {.lemma #lem-character title="乘法特征的消去" status="written-proof" proof="pf-character" doi="10.5281/zenodo.23885961" source="Lemma 1" request="https://github.com/the-omega-institute/trureturing-requests/issues/230" mathesis="collected:huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound:4:s2"}
 对任意整数 $m\geq0$ 与非零 $v\in\mathbb F_2^m$，每个常数 $c\ne0$ 满足 $\mathcal I_v(c)=1$。若还满足 $w\ne0$、$w\ne v$，则对任意处处非零的 $g:\mathbb F_2\to\mathbb C$，
@@ -83,9 +101,13 @@ $$
 $$
 :::
 
+<section hidden="hidden">
+
 ```{=typst}
 ]
 ```
+
+</section>
 
 ::: {.proof #pf-character}
 源文 Lemma 1（第 2 节）。因 $v\ne0$，存在 $u$ 使 $v\cdot u=1$。将输入 $x$ 与 $x+u$ 配对；此配对无不动点且是对合，两个指数相反，所以常数项抵消。
@@ -144,17 +166,25 @@ $$
 
 ## 由文献构造得到精确最优值
 
+<section hidden="hidden">
+
 ```{=typst}
 #block(breakable: false)[
 ```
+
+</section>
 
 ::: {.corollary #cor-optimal title="最坏情形的精确 CNOT 数" status="written-proof" proof="pf-optimal" doi="10.5281/zenodo.23885961" source="Corollary 1" request="https://github.com/the-omega-institute/trureturing-requests/issues/231" mathesis="collected:huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound:4:s3"}
 对每个整数 $n\geq1$，在上述精确、无辅助量子位的 CNOT/$R_z$ 模型中，所有 $2n$ 线反射对称对角目标的最少 CNOT 数的最大值为 $N_{2n}=2^{2n-1}+2n-2$。
 :::
 
+<section hidden="hidden">
+
 ```{=typst}
 ]
 ```
+
+</section>
 
 ::: {.proof #pf-optimal}
 源文 Corollary 1。Huang、Kosugi、Nishi 与 Matsushita 的 Algorithm 1（第 4 节与附录 C）对每个满足其 Eq. (1) 的目标给出实现到整体相位的电路。它有 $2^{2n-1}-1$ 个各含一 CNOT 的块，以及 $2n-1$ 个独立 CNOT，总数为 $N_{2n}$；其 Eq. (1) 正是对全部比特取反不变。因此每个目标的最少门数存在且不超过 $N_{2n}$。[@thm-explicit] 给出的目标至少需要 $N_{2n}$，故它恰好达到该数；最大值存在并等于 $N_{2n}$。上界来自上述文献构造，而非仅从存在性下界推出。
