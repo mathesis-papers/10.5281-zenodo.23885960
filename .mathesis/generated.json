@@ -40,9 +40,9 @@
     "manuscript/sources/lake-manifest.json": "8550e44937f85a9be196a2917a075eeb8c22bf6c15baa83e72017c6fc4437a8e",
     "manuscript/sources/lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
     "manuscript/verification.json": "7efaeee060fe9bbf99245a34459d004f8f049917344d86a8d9d6755809ecbf5e",
-    "paper.json": "fc7a99d68433d200233d99d363024661fe923af975f057978251f693c9dbe2a6",
+    "paper.json": "df21b9ad116e32d8cb6545e35f67c42f2c63ad38fe4e0edd94a447a48f825189",
     "paper.pdf": "8d00a9ce0fa2f9d5840c5fbb52ea033260f6f69ba59f27138c8d4671c760f6b1",
     "source.archive": "76b2a0c39560d94ce4fb33706f03cf4c151e935661119862df985e05bf29e7a1"
   },
-  "snapshot_identity": "2df3865913e4813c71542587d46732085f5e6a29246b83e1d3505935f5300967"
+  "snapshot_identity": "05fcb1662c66f10cfa03e4192ed31240fb3f6ef222d8218b5431f3b4d78b27ff"
 }

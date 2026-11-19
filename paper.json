@@ -2,16 +2,16 @@
   "files": {
     "pdf": {
       "bytes": 81098,
-      "matches_public": null,
+      "matches_public": true,
       "path": "paper.pdf",
-      "public_sha256": null,
+      "public_sha256": "8d00a9ce0fa2f9d5840c5fbb52ea033260f6f69ba59f27138c8d4671c760f6b1",
       "sha256": "8d00a9ce0fa2f9d5840c5fbb52ea033260f6f69ba59f27138c8d4671c760f6b1"
     },
     "source": {
       "bytes": 26901,
-      "matches_public": null,
+      "matches_public": true,
       "path": "source.archive",
-      "public_sha256": null,
+      "public_sha256": "76b2a0c39560d94ce4fb33706f03cf4c151e935661119862df985e05bf29e7a1",
       "sha256": "76b2a0c39560d94ce4fb33706f03cf4c151e935661119862df985e05bf29e7a1"
     }
   },
@@ -38,6 +38,8 @@
     "license": "CC-BY-4.0",
     "msc": [],
     "pdf": {
+      "bytes": 81098,
+      "sha256": "8d00a9ce0fa2f9d5840c5fbb52ea033260f6f69ba59f27138c8d4671c760f6b1",
       "url": "/api/v1/collected-papers/huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound/files/pdf?version=4"
     },
     "previous_version": null,
@@ -46,6 +48,8 @@
     "record": "huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound",
     "repository_name": "10.5281-zenodo.23885960",
     "source": {
+      "bytes": 26901,
+      "sha256": "76b2a0c39560d94ce4fb33706f03cf4c151e935661119862df985e05bf29e7a1",
       "url": "/api/v1/collected-papers/huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound/files/source?version=4"
     },
     "title": "Reflection-symmetric diagonal synthesis: resolving a conjecture of Huang, Kosugi, Nishi and Matsushita",
