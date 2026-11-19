@@ -1,0 +1,28 @@
+{
+  "schema": "mathesis.collection-history.v1",
+  "sha256": {
+    "versions/v4/.mathesis/generated.json": "5f37e55e3d6ee41b57e7e5d8a84164f7a7846de3c01ab96133b342c575b31bd0",
+    "versions/v4/CHANGELOG.md": "4d48da9034863f39f6eab2521ac6110df1dbc24fc621cb160327aec4a84df273",
+    "versions/v4/CITATION.cff": "3191def462bdf5f47188d53e04848043200b7fdcd7b7ea5196c6c2e4376d22b5",
+    "versions/v4/CONTRIBUTING.md": "fafd66e63160b2a88f433af56d2af2b0f7bf6ed2fd417d46b54446ce07c627ff",
+    "versions/v4/LICENSES/CC-BY-4.0.txt": "58230517b7895aa219ff46a6ed63e67057a1582fb9ea054b16728a8c13525650",
+    "versions/v4/README.md": "7fcb3c5b2d69b193ef0346503f116f26265009ede0355b7af868a1b184205b6d",
+    "versions/v4/formalization/nodes.json": "174e37ad9ff899b89f0f058f50a459ebdb5a9c13455f48b9ae7cdf27c5db72de",
+    "versions/v4/manuscript/README.md": "a2759994d6c85258d6749bf796868229a3beb0be8d5a370d8123aa8d076acc8e",
+    "versions/v4/manuscript/checks.py": "797d8574e48bda29b4d9cb23e46a4ded73ed6617d87ab6db001765d78b5b1db5",
+    "versions/v4/manuscript/metadata.json": "f82c7c58f43bd842d481ed868af2e4dfe17e6348154ef5e7799050db4735f3fb",
+    "versions/v4/manuscript/note.tex": "17b6f70419c1bf4bf31e637ca3fc8789f6b7160d65bf72a304e7172733127543",
+    "versions/v4/manuscript/source-manifest.json": "2f8d676b785a7c22c89d4becdd1460cac5fc1f086e22598354512abd46690265",
+    "versions/v4/manuscript/sources/ReflectionDiagonalCNOTLowerBound.lean": "12d8ee548fb5b263aba0d0a60bc42a2b29463570ae4a260149167da053ccd07d",
+    "versions/v4/manuscript/sources/ReflectionDiagonalParityCounting.lean": "92b1d1b509fd0e07f72af5b002fbbf609997956e9a7fd612d685780ace732195",
+    "versions/v4/manuscript/sources/UPSTREAM-LICENSE": "45404ee75576b053a86e89e545fd6987a607107cf4d846fa78dcb6a233d53447",
+    "versions/v4/manuscript/sources/lake-manifest.json": "8550e44937f85a9be196a2917a075eeb8c22bf6c15baa83e72017c6fc4437a8e",
+    "versions/v4/manuscript/sources/lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "versions/v4/manuscript/verification.json": "7efaeee060fe9bbf99245a34459d004f8f049917344d86a8d9d6755809ecbf5e",
+    "versions/v4/paper.json": "6cc144c2c474e06bf80a81bcfcdaee69c85588978b1d3be8eb5395d7772b6ef7",
+    "versions/v4/paper.pdf": "8d00a9ce0fa2f9d5840c5fbb52ea033260f6f69ba59f27138c8d4671c760f6b1",
+    "versions/v4/source.archive": "76b2a0c39560d94ce4fb33706f03cf4c151e935661119862df985e05bf29e7a1"
+  },
+  "source_commit": "be4a306ff3b15b378b8c1e6813fbdb10795146c4",
+  "work": "huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound"
+}

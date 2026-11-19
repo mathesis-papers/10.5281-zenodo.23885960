@@ -26,3 +26,39 @@ Haobo Ma, Wenlin Zhang (2026). Reflection-symmetric diagonal synthesis: resolvin
 ## Contributions
 
 Original authors are listed above. Formalization contributors and attribution are retained in `formalization/nodes.json`; repository pull requests do not confer verification or credit. Submit formalization attempts through the Mathesis attempt path described in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+<!-- Mathesis generated repository guide; refresh with paper.py front. -->
+
+## Reading and materials
+
+[Paper site](https://papers.trureturing.org/10.5281-zenodo.23885960/) · [Frozen PDF](paper.pdf) · [Citation](CITATION.cff)
+
+[中文阅读](https://papers.trureturing.org/10.5281-zenodo.23885960/huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound/zh/) · [Read in English](https://papers.trureturing.org/10.5281-zenodo.23885960/huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound/en/)
+
+[Slides](https://papers.trureturing.org/10.5281-zenodo.23885960/huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound/slides/) ([sources](books/huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound/slides/)) · [Videos](https://papers.trureturing.org/10.5281-zenodo.23885960/huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound/films/) ([sources](books/huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound/films/))
+
+These are publication routes; available built materials are inventoried in [mathesis-materials.json](https://papers.trureturing.org/10.5281-zenodo.23885960/mathesis-materials.json).
+
+## Book and formalization
+
+Catalog formalization status above is separate from the statement comparisons below. A nearby declaration does not verify the complete written result.
+
+| Book result | Comparison with formal base | Compared declaration |
+|---|---|---|
+| `thm-existence` | same | `D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result` |
+| `thm-explicit` | variant | `D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result` |
+| `lem-character` | none | — |
+| `cor-optimal` | variant | `D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result` |
+
+Book stage: **complete**; 0 pending claims. [Statement comparisons](.mathesis/review.json).
+
+## Repository map
+
+| Zone | Location |
+|---|---|
+| Paper record | `paper.json`, `CITATION.cff`, `paper.pdf`, `manuscript/`, `formalization/nodes.json`, `LICENSES/`, `.mathesis/` |
+| Content | `books/huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound/`: Chinese/English text, figures, visualizations, videos, slides, assets |
+| Machinery | Upstream and layer managed paths; update with `tbook template update` |
+| Repository front | This README, changelog, contribution guide, licence, project/site/pin configuration, `template.d/` |
+
+See [the enforced layout](docs/layer-mathesis/LAYOUT.md). Preparation run records and built outputs stay outside the committed tree.

@@ -1,0 +1,55 @@
+{
+  "book": "huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound",
+  "pending_claims": [],
+  "results": {
+    "thm-existence": {
+      "claim": "collected:huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound:4:s1",
+      "gids": [
+        "D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result"
+      ],
+      "comparison_verdict": "same",
+      "compared_public_gid": "D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8"
+    },
+    "thm-explicit": {
+      "claim": "collected:huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound:4:s1",
+      "gids": [],
+      "comparison_verdict": "variant",
+      "compared_public_gid": "D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "formalization_request": {
+        "label": "Explicit hard-target public interface",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/229"
+      }
+    },
+    "lem-character": {
+      "claim": "collected:huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound:4:s2",
+      "gids": [],
+      "comparison_verdict": "none",
+      "compared_public_gid": null,
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "formalization_request": {
+        "label": "Multiplicative cancellation public interface",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/230"
+      }
+    },
+    "cor-optimal": {
+      "claim": "collected:huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound:4:s3",
+      "gids": [],
+      "comparison_verdict": "variant",
+      "compared_public_gid": "D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "formalization_request": {
+        "label": "Universal synthesis upper bound and worst-case equality",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/231"
+      }
+    }
+  },
+  "stage": "complete",
+  "titles": {
+    "en": "Reflection-symmetric diagonal synthesis: resolving a conjecture of Huang, Kosugi, Nishi and Matsushita",
+    "zh": "Reflection-symmetric diagonal synthesis: resolving a conjecture of Huang, Kosugi, Nishi and Matsushita"
+  },
+  "version": 4,
+  "work": "huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound"
+}

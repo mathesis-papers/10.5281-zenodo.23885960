@@ -1,0 +1,11 @@
+kind = "academic"
+editions = ["zh", "en"]
+aspect = "4:3"
+structure_colour = "#0e2c8e"
+short_author = "H. Ma, W. Zhang"
+short_title = "Parity and return"
+date = "Version 4 (2026)"
+navigation_symbols = false
+[title]
+zh = "反射对称对角电路的精确最坏门数"
+en = "Exact worst-case counts for reflection-symmetric diagonal circuits"

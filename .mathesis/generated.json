@@ -10,6 +10,7 @@
     "manuscript/checks.py",
     "manuscript/metadata.json",
     "manuscript/note.tex",
+    "manuscript/original-source.archive",
     "manuscript/source-manifest.json",
     "manuscript/sources/ReflectionDiagonalCNOTLowerBound.lean",
     "manuscript/sources/ReflectionDiagonalParityCounting.lean",
@@ -18,8 +19,7 @@
     "manuscript/sources/lean-toolchain",
     "manuscript/verification.json",
     "paper.json",
-    "paper.pdf",
-    "source.archive"
+    "paper.pdf"
   ],
   "generator_version": "0.1.0",
   "sha256": {
@@ -33,6 +33,7 @@
     "manuscript/checks.py": "797d8574e48bda29b4d9cb23e46a4ded73ed6617d87ab6db001765d78b5b1db5",
     "manuscript/metadata.json": "f82c7c58f43bd842d481ed868af2e4dfe17e6348154ef5e7799050db4735f3fb",
     "manuscript/note.tex": "17b6f70419c1bf4bf31e637ca3fc8789f6b7160d65bf72a304e7172733127543",
+    "manuscript/original-source.archive": "76b2a0c39560d94ce4fb33706f03cf4c151e935661119862df985e05bf29e7a1",
     "manuscript/source-manifest.json": "2f8d676b785a7c22c89d4becdd1460cac5fc1f086e22598354512abd46690265",
     "manuscript/sources/ReflectionDiagonalCNOTLowerBound.lean": "12d8ee548fb5b263aba0d0a60bc42a2b29463570ae4a260149167da053ccd07d",
     "manuscript/sources/ReflectionDiagonalParityCounting.lean": "92b1d1b509fd0e07f72af5b002fbbf609997956e9a7fd612d685780ace732195",
@@ -40,9 +41,8 @@
     "manuscript/sources/lake-manifest.json": "8550e44937f85a9be196a2917a075eeb8c22bf6c15baa83e72017c6fc4437a8e",
     "manuscript/sources/lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
     "manuscript/verification.json": "7efaeee060fe9bbf99245a34459d004f8f049917344d86a8d9d6755809ecbf5e",
-    "paper.json": "df21b9ad116e32d8cb6545e35f67c42f2c63ad38fe4e0edd94a447a48f825189",
-    "paper.pdf": "8d00a9ce0fa2f9d5840c5fbb52ea033260f6f69ba59f27138c8d4671c760f6b1",
-    "source.archive": "76b2a0c39560d94ce4fb33706f03cf4c151e935661119862df985e05bf29e7a1"
+    "paper.json": "44c6921bbef0323d6bf91f2c76e7c310d4145233f2081e874eef65f8e26fb78c",
+    "paper.pdf": "8d00a9ce0fa2f9d5840c5fbb52ea033260f6f69ba59f27138c8d4671c760f6b1"
   },
-  "snapshot_identity": "05fcb1662c66f10cfa03e4192ed31240fb3f6ef222d8218b5431f3b4d78b27ff"
+  "snapshot_identity": "43e0baa19c009a93da6a1893f604ea18228606e96d6c1dd30a515c053fd7e42c"
 }

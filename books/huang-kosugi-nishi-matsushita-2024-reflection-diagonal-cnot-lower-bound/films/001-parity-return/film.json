@@ -1,0 +1,29 @@
+{
+  "id": "001-parity-return",
+  "title": "Why parity labels must return",
+  "title_zh": "偶标签为何必须返回",
+  "subject": "https://doi.org/10.5281/zenodo.23885961",
+  "publication_basis": "pinned",
+  "released": "2026-11-15",
+  "duration": "2:56",
+  "resolution": "1280x720@30",
+  "style": "trureturing cyberpunk · deterministic canvas",
+  "narration": {
+    "language": "en",
+    "engine": "Kokoro-82M v1.0 (onnx)",
+    "voice": "af_heart"
+  },
+  "subtitles": [
+    "zh",
+    "en"
+  ],
+  "lean": [
+    "D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result"
+  ],
+  "outputs": {
+    "narrated_720p": "huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound_001_720p_narrated.mp4",
+    "cover": "huang-kosugi-nishi-matsushita-2024-reflection-diagonal-cnot-lower-bound_001_cover.jpg"
+  },
+  "summary": "A phase ratio forces every nonzero even parity, and birth–return conservation explains the extra CNOT cost.",
+  "summary_zh": "相位比值强迫所有非零偶标签，出生—返回守恒解释额外的 CNOT 代价。"
+}

@@ -1,0 +1,183 @@
+\documentclass{beamer}
+\input{tbook-deck}
+\title{Exact worst-case counts for\\reflection-symmetric diagonal circuits}
+\author{Haobo Ma\inst{1} \and Wenlin Zhang\inst{1,2}}
+\institute{\inst{1}ChronoAI Pte Ltd, Singapore\and\inst{2}National University of Singapore, Singapore}
+\begin{document}
+% Manuscript: Title and abstract, version 4
+\begin{frame}
+\titlepage
+\note{Start with two bits, then explain why all even labels are unavoidable and why restoration has an additional linear cost.}
+\end{frame}
+% Manuscript: Sections 1--3, argument order
+\begin{frame}{Route through the proof}
+\tableofcontents
+\note{We first study the question and example, then phase cancellation and counting, and finally the literature upper bound.}
+\end{frame}
+\section{Question}
+% Manuscript: Section 1, Theorem 1 and Section 3, Corollary 1
+\begin{frame}{Question}
+$m=2n$, $n\geq1$: complementing every bit preserves the target phase.
+\begin{block}{Answer}
+The exact worst-case CNOT count is
+\[N_m=2^{m-1}+m-2.\]
+\end{block}
+Huang et al. (2024): every target needs at most $N_m$.\\[.4em]
+Ma and Zhang: an explicit target needs at least $N_m$.
+\note{State the question and answer first. Worst case means minimizing over circuits for each target, then maximizing over targets. The identity needs zero gates, so the formula is not a lower bound for every target. Attribute the universal upper bound to Algorithm 1 of Huang, Kosugi, Nishi and Matsushita.}
+\end{frame}
+% Manuscript: Section 1, gate model
+\begin{frame}{The allowed tools}
+\begin{itemize}
+\item Diagonal action: $|x\rangle\mapsto e^{\mathrm i\theta(x)}|x\rangle$.
+\item CNOT: $(a,b)\mapsto(a,b\oplus a)$, distinct wires.
+\item $R_z(\varphi)=\operatorname{diag}(e^{-\mathrm i\varphi/2},e^{\mathrm i\varphi/2})$.
+\item Exactly $m$ wires, unrestricted connectivity; count CNOTs.
+\item Exact up to global phase; no ancillas, measurements, other gates or approximation.
+\end{itemize}
+\note{Explain phase as an arrow direction; multiplication by $\mathrm i$ is a quarter turn. Reflection here complements all bits. The angle $\varphi$ is an arbitrary real number. Rotations are not charged. The gate set and absence of ancillas are part of the theorem.}
+\end{frame}
+% Manuscript: Section 1, hard target; Section 4, synthesis identity
+\begin{frame}{Understand two bits first}
+\[D_* = \operatorname{diag}(\mathrm i,1,1,\mathrm i).\]
+\begin{center}
+\begin{tabular}{c|c|c}
+Step & Wire 1 & Wire 2\\\hline
+Start & $a$ & $b$\\
+CNOT & $a$ & $a\oplus b$\\
+$R_z(-\pi/2)$ & $a$ & $a\oplus b$\\
+CNOT & $a$ & $b$
+\end{tabular}
+\end{center}
+Actual phase: $e^{-\mathrm i\pi/4}D_*$. Two gates, with inputs restored.
+\note{Equal inputs have XOR zero and acquire $e^{\mathrm i\pi/4}$; unequal inputs acquire $e^{-\mathrm i\pi/4}$. A common factor $e^{\mathrm i\pi/4}$ yields the target. The second CNOT restores the bit label without undoing the applied phase.}
+\end{frame}
+\section{Labels}
+% Manuscript: Section 2, wire labels and normal form
+\begin{frame}{Track the labels}
+Label $1100$ means $x_1\oplus x_2$.
+\[w_t\longleftarrow w_t+w_c\qquad(\text{over }\mathbb F_2).\]
+Rotations preserve labels; CNOTs keep their matrix invertible.
+\[|x\rangle\longmapsto f(x)|Ax\rangle,\quad f(x)\ne0.\]
+A diagonal target forces $Ax=x$, hence $A=I$.
+\note{Initial labels are unit vectors. Invertibility ensures no wire label vanishes. Induct over gates: phase factors never vanish and the output basis index is given by a binary linear map. A diagonal matrix preserves each index, which mathematically forces restoration.}
+\end{frame}
+% Manuscript: Section 2, Lemma 1
+\begin{frame}{A ratio that detects a label}
+\[\mathcal I_v(h)=\prod_x h(x)^{(-1)^{v\cdot x}}.\]
+Parity zero goes above the fraction; parity one below.
+\begin{bookresult}{lem-character}
+For $v\ne0$, nonzero constant phases cancel.\\
+For $w\ne0,v$ and every nowhere-zero two-valued $g$,
+\[\mathcal I_v\bigl(g(w\cdot x)\bigr)=1.\]
+\end{bookresult}
+\note{The exponents are integers $+1$ and $-1$, with no logarithm branch. Distinct nonzero vectors over $\mathbb F_2$ are independent, so choose $u$ with $v\cdot u=1$ and $w\cdot u=0$. Pair $x$ with $x+u$: equal rotation factors have opposite exponents. Constants need only the first condition.}
+\end{frame}
+% Manuscript: Section 2, hard-instance character
+\begin{frame}{Force every even label}
+Hard target: $d_*(0)=d_*(\mathbf1)=\mathrm i$, and $1$ elsewhere.
+\[H=\{v:v\cdot\mathbf1=0\}.\]
+Every nonzero $v\in H$ satisfies
+\[\mathcal I_v(d_*)=\mathrm i^2=-1.\]
+Without a rotation on $v$, cancellation gives $\mathcal I_v(f)=1$.\\[.5em]
+Global phase also cancels: contradiction. Every nonzero even label must occur.
+\note{Zero and all-one both enter the numerator because $v$ has even weight. All other entries are one. Direct complex multiplication makes the obstruction immune to adding whole turns to phase angles. The forced label must be used at a rotation, not just visited incidentally.}
+\end{frame}
+% Manuscript: Section 1, Theorem 1
+\begin{frame}{The explicit hard target}
+\begin{bookresult}{thm-explicit}
+For every $n\geq1$, $m=2n$, take
+\[\theta_*(x)=\begin{cases}\pi/2,&x=0,\mathbf1,\\0,&\text{otherwise}.\end{cases}\]
+This is complement-symmetric. Every allowed circuit and every $c\in\mathbb C$ with $U=cD_*$ obey
+$K\geq2^{m-1}+m-2$.
+\end{bookresult}
+\note{We have explained why labels are forced; counting comes next. This statement names a specific target. The public theorem states existence, and the internal proof chooses this witness. The realization equality automatically excludes $c=0$.}
+\end{frame}
+\section{Counting}
+% Manuscript: Section 3, counting even outputs and births
+\begin{frame}{Even outputs and births}
+$H$ has $2^{m-1}-1$ nonzero vectors and dimension $m-1$.
+\begin{itemize}
+\item All initial labels are odd; every new even label needs an even output.
+\item Odd $+$ odd $=$ even: call this a birth.
+\item Every even label ever seen lies in the span of birth outputs.
+\end{itemize}
+Thus at least $2^{m-1}-1$ even outputs and $m-1$ births are needed.
+\note{Span means XOR combinations. The induction remembers all birth outputs, including those no longer on wires. Even plus even stays in the span, odd plus odd adds a generator, and mixed parity yields an odd output. Covering the even subspace needs at least $m-1$ generators. Births are already even outputs, so we cannot add their count again.}
+\end{frame}
+% Manuscript: Section 3, return conservation
+\begin{frame}{The restoration balance}
+$E$: number of even labels currently on wires.
+\begin{center}\begin{tabular}{c|c|c}
+Target, control & Output & $\Delta E$\\\hline
+odd, odd & even & $+1$ (birth)\\
+even, odd & odd & $-1$ (return)\\
+even, even & even & $0$\\
+odd, even & odd & $0$
+\end{tabular}\end{center}
+Initially and finally $E=0$, so $R=B\geq m-1$.\\[.4em]
+Returns have odd outputs, disjoint from the even-output count.
+\note{Check the four changes row by row. Only births increase the count; only returns decrease it. A return need not undo a particular birth: conservation of the total is enough. Final unit labels ensure $E=0$.}
+\end{frame}
+% Manuscript: Section 3, conclusion of Theorem 1
+\begin{frame}{The lower bound and its smallest case}
+\[\begin{aligned}
+K&\geq(2^{m-1}-1)+R\\
+ &\geq2^{m-1}+m-2.
+\end{aligned}\]
+\begin{itemize}
+\item $m=2$: one nonzero even label plus one return gives $2$.
+\item $m=4$: six weight-two labels and $1111$, plus three returns, give $10$.
+\end{itemize}
+The general proof uses cancellation and conservation, not extrapolation from searches.
+\note{Check $n=1$, matching the earlier two-gate construction. For four wires, the graphic bound of Cao et al. gives nine for the complete graph. This target forces the weight-four label too, bringing the count to ten. Counting only pair labels loses that constraint.}
+\end{frame}
+\section{Conclusion}
+% Manuscript: Section 3, Corollary 1; HKNM Algorithm 1
+\begin{frame}{From a lower bound to equality}
+\begin{bookresult}{cor-optimal}
+For every $n\geq1$, the maximum over reflection-symmetric targets on $2n$ wires of their minimum CNOT counts is
+\[N_{2n}=2^{2n-1}+2n-2.\]
+\end{bookresult}
+Upper bound: $(2^{2n-1}-1)+(2n-1)=N_{2n}$.\\
+Lower bound: the explicit target, or the existential theorem.
+\note{The two upper-bound counts come from Huang et al., Algorithm 1, Section 4 and Appendix C. The construction guarantees every target has a minimum. A hard target attains the bound, so the maximum exists as well. Equality requires both sides.}
+\end{frame}
+% Manuscript: Public Lean claim; Section 3 remaining questions
+\begin{frame}{Formal conclusion and scope}
+\begin{bookresult}{thm-existence}
+For every $n\geq1$, there exists a reflection-symmetric real phase target for which every allowed implementation uses at least $N_{2n}$ CNOTs.
+\end{bookresult}
+\begin{itemize}
+\item Explicit witness and cancellation: proved internally; public interfaces needed.
+\item Equality additionally needs the literature upper bound formalized.
+\item Optimal depth and the radial-potential subclass are separate questions.
+\end{itemize}
+\note{This is the existential statement of the public Lean theorem, with the allowed model as defined earlier. Its proof chooses the hard target, but the public conclusion does not name it. Substituting $dn$ for $n$ gives the full $2dn$-wire class's count. Additional radial symmetry restricts the targets and may exclude the witness.}
+\end{frame}
+\appendix
+% Manuscript: Section 4, finite synthesis check
+\begin{frame}{A phase synthesis identity}
+$H=\{v:v\cdot\mathbf1=0\}$, $\chi_v(x)=(-1)^{v\cdot x}$.
+\[\theta_*(x)=\frac{\pi}{2^m}\sum_{v\in H}\chi_v(x).\]
+The sum is $2^{m-1}$ on $H^\perp=\{0,\mathbf1\}$ and cancels elsewhere.\\[.5em]
+Rotate by $-\pi/2^{m-1}$ at each nonzero even label to obtain
+\[e^{-\mathrm i\pi/2^m}D_*\]
+(the network must still return).
+\note{Outside the orthogonal complement, choose $u\in H$ with $u\cdot x=1$ and pair $v,v+u$. Each rotation contributes exponent $\mathrm i\pi\chi_v(x)/2^m$. Omitting the zero character subtracts one and supplies the displayed global phase. This identity alone is not a new shortest-network algorithm.}
+\end{frame}
+% Manuscript: Bibliography; Theorem 1, Lemma 1, Corollary 1
+\begin{frame}{Sources and next contributions}
+\small
+Ma and Zhang, version 4: \href{https://doi.org/10.5281/zenodo.23885961}{doi:10.5281/zenodo.23885961}.\\[.5em]
+Huang, Kosugi, Nishi and Matsushita (2024):\\
+\href{https://doi.org/10.7566/JPSJ.93.054002}{doi:10.7566/JPSJ.93.054002}, Eq. (1), Algorithm 1, Section 6.\\[.5em]
+Amy, Azimzadeh and Mosca (2019):\\
+\href{https://doi.org/10.1088/2058-9565/aad8ca}{doi:10.1088/2058-9565/aad8ca}, Section 2.\\[.5em]
+Cao, Lu, Nie, Sun and Tian (2025): \href{https://arxiv.org/abs/2509.10070v1}{arXiv:2509.10070v1}, Theorem 1.1.\\[.5em]
+Contribute: \href{https://github.com/the-omega-institute/trureturing-requests/issues/229}{explicit target}, \href{https://github.com/the-omega-institute/trureturing-requests/issues/230}{cancellation interface}, \href{https://github.com/the-omega-institute/trureturing-requests/issues/231}{upper bound and equality}.
+\note{The paper credits the existing Trureturing lower-bound proof. Reuse its proved helpers for interface work. The upper-bound task adds the missing direction and combines it with the public existential lower bound. Contributors can develop in their own forks and submit focused PRs directly to upstream dev.}
+\end{frame}
+% Manuscript: Exact statement evidence ledger
+\FormalVerification
+\end{document}

@@ -1,0 +1,191 @@
+{
+  "voice": "af_heart",
+  "speed": 0.96,
+  "say": {
+    "CNOT": "see not",
+    "Lean": "Leen"
+  },
+  "music": {
+    "bpm": 84,
+    "progression": "d-minor"
+  },
+  "scenes": [
+    {
+      "id": "target",
+      "name": "THE QUESTION",
+      "lead": 0.8,
+      "tail": 0.7,
+      "music": [
+        0.5,
+        0.15,
+        0.12,
+        0.0,
+        0.0
+      ],
+      "lines": [
+        [
+          "A diagonal quantum operation changes phases without changing the input bits. Our target turns only the all-zero and all-one amplitudes by a quarter circle.",
+          "对角量子操作只改变相位，不改变输入比特。这里的目标只让全零和全一振幅转过四分之一圈。"
+        ],
+        [
+          "Complementing every bit exchanges those two marked inputs, so the target has reflection symmetry. How many controlled bit flips are unavoidable?",
+          "全部比特取反会交换两个标记输入，因此目标具有反射对称性。究竟多少次受控翻转不可避免？"
+        ]
+      ]
+    },
+    {
+      "id": "xor",
+      "name": "COMPUTE AND RESTORE",
+      "lead": 0.8,
+      "tail": 0.7,
+      "music": [
+        0.5,
+        0.15,
+        0.12,
+        0.0,
+        0.0
+      ],
+      "lines": [
+        [
+          "For two bits, one CNOT computes their exclusive-or on the second wire. Equal bits give zero; different bits give one.",
+          "两比特时，一个 CNOT 在第二条线上算出异或。相同得零，不同得一。"
+        ],
+        [
+          "Rotate that wire, then repeat the CNOT to restore the input. Two gates implement the target up to one common phase. Restoration matters.",
+          "旋转这条线，再重复 CNOT 恢复输入。两门就能实现目标到一个整体相位。恢复步骤很重要。"
+        ]
+      ]
+    },
+    {
+      "id": "ratio",
+      "name": "DETECT A LABEL",
+      "lead": 0.8,
+      "tail": 0.7,
+      "music": [
+        0.5,
+        0.15,
+        0.12,
+        0.0,
+        0.0
+      ],
+      "lines": [
+        [
+          "On more wires, a label records which original bits are combined by exclusive-or. A rotation uses the current label of its wire.",
+          "更多线上，标签记录哪些原始比特被异或起来。每次旋转使用该线当前的标签。"
+        ],
+        [
+          "Fix a nonzero label. Multiply phases for parity zero, and divide by the product for parity one. Global phase cancels.",
+          "固定一个非零标签。将零奇偶组的相位相乘，除以一奇偶组的乘积。整体相位会抵消。"
+        ],
+        [
+          "A different nonzero rotation label cancels too: pair inputs with equal rotation factors and opposite positions in the ratio.",
+          "其他非零旋转标签也会抵消：将旋转因子相同、但处于比值两侧的输入配对。"
+        ]
+      ]
+    },
+    {
+      "id": "force",
+      "name": "FORCE EVEN LABELS",
+      "lead": 0.8,
+      "tail": 0.7,
+      "music": [
+        0.5,
+        0.15,
+        0.12,
+        0.0,
+        0.0
+      ],
+      "lines": [
+        [
+          "An even label selects an even number of input bits. Both marked inputs then have parity zero, so their contribution is i times i: minus one.",
+          "偶标签选中偶数个输入位。两个标记输入的奇偶都为零，贡献为 i 乘 i，等于负一。"
+        ],
+        [
+          "Without a rotation on this label, cancellation would give one instead. Every nonzero even label must therefore appear on a rotated wire.",
+          "若从未在该标签上旋转，消去却会给出一。因此每个非零偶标签都必须出现在旋转线上。"
+        ]
+      ]
+    },
+    {
+      "id": "birth",
+      "name": "CREATE THE LABELS",
+      "lead": 0.8,
+      "tail": 0.7,
+      "music": [
+        0.5,
+        0.15,
+        0.12,
+        0.0,
+        0.0
+      ],
+      "lines": [
+        [
+          "There are two raised to the power m minus one even labels, including zero. Every nonzero even label needs a first CNOT output.",
+          "偶标签共有二的 m 减一次方个，包括零。每个非零偶标签首次出现，都需要一次 CNOT 输出。"
+        ],
+        [
+          "Combining two odd labels creates an even label: call this a birth. Every even label ever produced is an exclusive-or combination of birth outputs.",
+          "两个奇标签相加得到偶标签，称为出生。每个曾产生的偶标签都是出生输出的异或组合。"
+        ],
+        [
+          "The even labels have m minus one independent directions. At least m minus one births are needed to span them.",
+          "偶标签有 m 减一个独立方向。因此至少需要 m 减一次出生才能张成它们。"
+        ]
+      ]
+    },
+    {
+      "id": "return",
+      "name": "PAY FOR THE RETURN",
+      "lead": 0.8,
+      "tail": 0.7,
+      "music": [
+        0.5,
+        0.15,
+        0.12,
+        0.0,
+        0.0
+      ],
+      "lines": [
+        [
+          "Count the even labels currently on wires. Each birth adds one. Only an even target with an odd control removes one. Call that a return.",
+          "数一数当前线上的偶标签。出生加一；只有偶目标加奇控制才减一，称为返回。"
+        ],
+        [
+          "The count starts and ends at zero, so returns equal births. Returns have odd outputs, additional to the even outputs already counted.",
+          "这个数从零开始并回到零，所以返回与出生一样多。返回输出奇标签，是已计偶输出之外的额外门。"
+        ],
+        [
+          "On four wires, seven required even labels plus at least three returns give at least ten CNOT gates.",
+          "四条线上，七个必需偶标签加至少三次返回，总计至少十个 CNOT 门。"
+        ]
+      ]
+    },
+    {
+      "id": "conclusion",
+      "name": "THE EXACT WORST CASE",
+      "lead": 0.8,
+      "tail": 0.7,
+      "music": [
+        0.5,
+        0.15,
+        0.12,
+        0.0,
+        0.0
+      ],
+      "lines": [
+        [
+          "For m equal to two n, with n at least one, the lower bound is two to the m minus one, plus m minus two.",
+          "当 m 等于二 n 且 n 至少为一，下界为二的 m 减一次方，加 m 减二。"
+        ],
+        [
+          "The public Lean theorem proves that a hard symmetric target exists. Its proof uses this explicit target.",
+          "公开 Lean 定理证明存在困难的对称目标，其证明使用了这里的明确目标。"
+        ],
+        [
+          "Huang, Kosugi, Nishi and Matsushita supply the matching universal construction. Together these results give the exact worst-case gate count. Optimal depth and the narrower radial-potential family remain separate questions.",
+          "Huang、Kosugi、Nishi 与 Matsushita 已给出匹配的普适构造。两者确定精确最坏门数；最优深度与更窄的径向势族仍是另外的问题。"
+        ]
+      ]
+    }
+  ]
+}

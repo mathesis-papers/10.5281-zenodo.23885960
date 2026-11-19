@@ -1,0 +1,17 @@
+{
+  "schema": "trureturing-books.lock.v1",
+  "repo": "the-omega-institute/trureturing",
+  "branch": "dev",
+  "commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+  "pinned_at": "2026-11-08T12:32:04Z",
+  "declarations": {
+    "D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result": {
+      "module": "D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound",
+      "name": "D5.S3.Quantum.Magic.ReflectionDiagonalCNOTLowerBound.result",
+      "kind": "theorem",
+      "statement_id": "sha256:372df8dafb6e47b8241406c70dd19eac4711a686a00f7219508d684aafe46d13",
+      "line": 510,
+      "signature": "theorem result : claim"
+    }
+  }
+}

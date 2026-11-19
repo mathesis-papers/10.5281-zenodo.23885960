@@ -1,0 +1,31 @@
+{
+  "pin": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+  "source_revision": "02c695f8c17e35965f80603427074b1dd434eed9",
+  "search_scope": "Read full pinned claim and matching private helper statements, both relevant Lean modules and their frozen state records, both Blueprints and the source library entry. Main module byte-identical to frozen manuscript source. Commit-tree candidate discovery found these relevant reflection-diagonal modules; local lock was not treated as whole-library inventory. Reconciled original independent theorem/lemma/corollary counters: Theorem 1, Lemma 1, Corollary 1.",
+  "results": {
+    "thm-existence": {
+      "comparison_verdict": "same",
+      "compared_public_gid": "D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "scope": "Exact existential consequence of source Theorem 1. For every n>=1 there exists a real complement-invariant phase function; every finite circuit on Fin (2*n) using distinct-wire CNOT and arbitrary real R_z, and every complex c realizing its diagonal up to scalar, has the stated lower bound. Expands public claim at lines 65–71; result at 510. Does not name the witness. This additional expository row and thm-explicit both map s1 with their implication explained in the reading."
+    },
+    "thm-explicit": {
+      "comparison_verdict": "variant",
+      "compared_public_gid": "D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "scope": "Source Theorem 1 names theta_* (pi/2 at 0 and all-one, zero elsewhere), with the same all-n, circuit and scalar quantifiers. Public result quantifies existentially over theta. Private hardTheta, hardTheta_reflection and claim_for_n at 62,73,496 construct this exact witness and are present under private names in frozen module evidence. The missing stable public interface is requested; no duplicate existential proof is requested. For n=1 the bound is 2; c=0 is impossible for a realizing circuit."
+    },
+    "lem-character": {
+      "comparison_verdict": "none",
+      "compared_public_gid": null,
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "scope": "Source Lemma 1, both clauses: nonzero v cancels nonzero constants; distinct nonzero v,w cancel every nowhere-zero complex two-valued g. Private character_global and character_factor at 235,243 match these clauses (character and character_cancel supply definitions and pairing). Frozen module evidence includes their private-name entries, but there is no inspected stable public GID for this lemma. Request only a public interface reusing these proofs. At m=0 the first premise is impossible; at m=1 the second is impossible."
+    },
+    "cor-optimal": {
+      "comparison_verdict": "variant",
+      "compared_public_gid": "D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "scope": "Source Corollary 1 is exact worst-case equality: the maximum over real complement-invariant phase targets of minimum exact ancilla-free CNOT counts is N_(2n), n>=1. The public result proves the existential lower bound, not universal synthesis. Need Huang et al. Algorithm 1, Section 4 and Appendix C upper bound, with the identical R_z convention, unrestricted distinct-wire connectivity and global-phase equivalence. Existing existential result suffices as lower-bound prerequisite; explicit-witness interface is not needed. Excludes depth and restricted radial-potential optimality."
+    }
+  }
+}

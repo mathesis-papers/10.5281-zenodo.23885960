@@ -1,0 +1,183 @@
+\documentclass{beamer}
+\input{tbook-deck}
+\title{反射对称对角电路的精确最坏门数}
+\author{Haobo Ma\inst{1} \and Wenlin Zhang\inst{1,2}}
+\institute{\inst{1}ChronoAI Pte Ltd, Singapore\and\inst{2}National University of Singapore, Singapore}
+\begin{document}
+% Manuscript: Title and abstract, version 4
+\begin{frame}
+\titlepage
+\note{从两比特例子进入问题，逐步解释所有偶标签为何不可避，以及恢复线路的线性代价。}
+\end{frame}
+% Manuscript: Sections 1--3, argument order
+\begin{frame}{路线}
+\tableofcontents
+\note{先看问题与例子，再看相位消去和计数，最后结合文献上界。}
+\end{frame}
+\section{问题}
+% Manuscript: Section 1, Theorem 1 and Section 3, Corollary 1
+\begin{frame}{问题}
+$m=2n$, $n\geq1$：逐位取反不改变目标相位。
+\begin{block}{答案}
+最坏情形的精确 CNOT 数为
+\[N_m=2^{m-1}+m-2.\]
+\end{block}
+Huang 等人（2024）：每个目标都能用至多 $N_m$ 门实现。\\[.4em]
+Ma 与 Zhang：明确目标迫使至少 $N_m$ 门。
+\note{先把问题和答案讲清。最坏情形是先对每个目标找最少门数，再对目标取最大值。恒等目标需要零门，所以不能说每个目标都需要 $N_m$。上界归于 Huang、Kosugi、Nishi 与 Matsushita 的 Algorithm 1。}
+\end{frame}
+% Manuscript: Section 1, gate model
+\begin{frame}{允许的工具}
+\begin{itemize}
+\item 对角操作：$|x\rangle\mapsto e^{\mathrm i\theta(x)}|x\rangle$。
+\item CNOT：$(a,b)\mapsto(a,b\oplus a)$，两条线不同。
+\item $R_z(\varphi)=\operatorname{diag}(e^{-\mathrm i\varphi/2},e^{\mathrm i\varphi/2})$。
+\item 恰好 $m$ 条线，任意连通性；只数 CNOT。
+\item 精确到整体相位；无辅助位、测量、其他门或近似。
+\end{itemize}
+\note{用平面箭头解释复相位，乘 $\mathrm i$ 是四分之一圈。这里的反射是全部比特取反。角度 $\varphi$ 可取任意实数；旋转不计入成本。改变门集或允许辅助位会改变结论的适用模型。}
+\end{frame}
+% Manuscript: Section 1, hard target; Section 4, synthesis identity
+\begin{frame}{两比特先看懂}
+\[D_* = \operatorname{diag}(\mathrm i,1,1,\mathrm i).\]
+\begin{center}
+\begin{tabular}{c|c|c}
+步骤 & 第一线 & 第二线\\\hline
+初始 & $a$ & $b$\\
+CNOT & $a$ & $a\oplus b$\\
+$R_z(-\pi/2)$ & $a$ & $a\oplus b$\\
+CNOT & $a$ & $b$
+\end{tabular}
+\end{center}
+实际相位：$e^{-\mathrm i\pi/4}D_*$。两门，且恢复输入。
+\note{相等输入的异或为零，得到 $e^{\mathrm i\pi/4}$；不同输入得到 $e^{-\mathrm i\pi/4}$。共同乘上 $e^{\mathrm i\pi/4}$ 就是目标。第二次 CNOT 不改变已施加的相位，但把第二条线恢复原状。}
+\end{frame}
+\section{标签}
+% Manuscript: Section 2, wire labels and normal form
+\begin{frame}{跟踪标签}
+标签 $1100$ 表示 $x_1\oplus x_2$。
+\[w_t\longleftarrow w_t+w_c\qquad(\mathbb F_2\text{ 上}).\]
+旋转保留标签，CNOT 保持标签矩阵可逆。
+\[|x\rangle\longmapsto f(x)|Ax\rangle,\quad f(x)\ne0.\]
+对角目标迫使 $Ax=x$，因此 $A=I$。
+\note{每个初始标签是单位向量。可逆性保证任何标签都不为零。形式由逐门归纳得到：相位非零，唯一输出基索引由二进制线性映射决定。要成为对角矩阵，每个基索引必须保持不变。这正是最终恢复的数学原因。}
+\end{frame}
+% Manuscript: Section 2, Lemma 1
+\begin{frame}{让比值听见标签}
+\[\mathcal I_v(h)=\prod_x h(x)^{(-1)^{v\cdot x}}.\]
+零异或放在分子，一异或放在分母。
+\begin{bookresult}{lem-character}
+$v\ne0$ 时，非零常数相位抵消。\\
+若 $w\ne0,v$，任何非零二值函数 $g$ 满足
+\[\mathcal I_v\bigl(g(w\cdot x)\bigr)=1.\]
+\end{bookresult}
+\note{指数是整数 $+1$ 与 $-1$，没有对数分支。不同非零向量在 $\mathbb F_2$ 上独立，故可选 $u$ 满足 $v\cdot u=1$ 而 $w\cdot u=0$。配对 $x$ 与 $x+u$，旋转因子相同而指数相反。常数情形只需第一个条件。}
+\end{frame}
+% Manuscript: Section 2, hard-instance character
+\begin{frame}{强迫每个偶标签}
+困难目标：$d_*(0)=d_*(\mathbf1)=\mathrm i$，其余为 $1$。
+\[H=\{v:v\cdot\mathbf1=0\}.\]
+每个非零 $v\in H$ 都满足
+\[\mathcal I_v(d_*)=\mathrm i^2=-1.\]
+若从未在 $v$ 上旋转，消去给出 $\mathcal I_v(f)=1$。\\[.5em]
+整体相位也消去，矛盾。因此每个非零偶标签都要出现。
+\note{零与全一都在分子，因为 $v$ 的重量为偶数。其他项为一。证明直接处理复数，改写角度加上整圈无法逃避结论。强迫的是某次旋转使用该标签，不只是网络在某时刻碰到它。}
+\end{frame}
+% Manuscript: Section 1, Theorem 1
+\begin{frame}{明确的困难目标}
+\begin{bookresult}{thm-explicit}
+对每个 $n\geq1$，$m=2n$，取
+\[\theta_*(x)=\begin{cases}\pi/2,&x=0,\mathbf1,\\0,&\text{其他} .\end{cases}\]
+它满足补对称。每个允许电路、每个 $c\in\mathbb C$，若
+$U=cD_*$，则 $K\geq2^{m-1}+m-2$。
+\end{bookresult}
+\note{现在已解释为什么标签被强迫，接下来完成计数。这里陈述明确目标，不能把只陈述存在性的公开结论直接当作这个完整陈述的标签。源文内部证明选择了同一个目标。实现等式自动保证 $c\ne0$。}
+\end{frame}
+\section{计数}
+% Manuscript: Section 3, counting even outputs and births
+\begin{frame}{偶输出与出生}
+$H$ 有 $2^{m-1}-1$ 个非零向量，维数 $m-1$。
+\begin{itemize}
+\item 初始全是奇标签，每个新偶标签要一次偶输出。
+\item 奇 $+$ 奇 $=$ 偶：称为出生。
+\item 每个曾出现的偶标签都在出生输出的张成中。
+\end{itemize}
+故偶输出至少 $2^{m-1}-1$ 次，出生至少 $m-1$ 次。
+\note{解释张成就是异或组合。归纳不只跟踪当前标签，还保留所有已出生生成元。偶加偶在张成中；奇加奇新增生成元；混合更新输出奇标签。因此全部偶向量必须在出生张成中，维数迫使至少 $m-1$ 个生成元。出生已经计入偶输出，不能直接再加一次。}
+\end{frame}
+% Manuscript: Section 3, return conservation
+\begin{frame}{恢复的守恒账}
+$E$：当前偶标签的条数。
+\begin{center}\begin{tabular}{c|c|c}
+目标、控制 & 输出 & $\Delta E$\\\hline
+奇、奇 & 偶 & $+1$（出生）\\
+偶、奇 & 奇 & $-1$（返回）\\
+偶、偶 & 偶 & $0$\\
+奇、偶 & 奇 & $0$
+\end{tabular}\end{center}
+初始、最终 $E=0$，所以 $R=B\geq m-1$。\\[.4em]
+返回是奇输出，与前面偶输出不相交。
+\note{把四类变化逐行核对。只有出生加一，只有返回减一。不把“返回”理解为一次门撤销一个指定出生；这里只需要总数守恒。最终为单位标签，保证 $E=0$。}
+\end{frame}
+% Manuscript: Section 3, conclusion of Theorem 1
+\begin{frame}{下界与最小例子}
+\[\begin{aligned}
+K&\geq(2^{m-1}-1)+R\\
+ &\geq2^{m-1}+m-2.
+\end{aligned}\]
+\begin{itemize}
+\item $m=2$：一个非零偶标签，加一次返回，得 $2$。
+\item $m=4$：六个二位标签及 $1111$，加三次返回，得 $10$。
+\end{itemize}
+全参数证明依赖消去与守恒，不是小规模搜索外推。
+\note{检查最小允许值 $n=1$，它与前面的两门构造匹配。四线比较中，Cao 等人图奇偶网络下界对完全图给九；这里还必须出现四位标签，得到十。只数二位标签会丢失证明的约束。}
+\end{frame}
+\section{结论}
+% Manuscript: Section 3, Corollary 1; HKNM Algorithm 1
+\begin{frame}{由下界到精确值}
+\begin{bookresult}{cor-optimal}
+每个 $n\geq1$，所有 $2n$ 线反射对称目标的最少 CNOT 数的最大值为
+\[N_{2n}=2^{2n-1}+2n-2.\]
+\end{bookresult}
+上界：$(2^{2n-1}-1)+(2n-1)=N_{2n}$。\\
+下界：明确困难目标，或存在性定理。
+\note{上界的两个计数来自 Huang 等人的 Algorithm 1，第 4 节与附录 C。普适构造保证每个目标的最少门数存在；困难目标达到上界，所以最大值也存在。精确等号需要两边，不能只引用下界。}
+\end{frame}
+% Manuscript: Public Lean claim; Section 3 remaining questions
+\begin{frame}{形式结论与范围}
+\begin{bookresult}{thm-existence}
+每个 $n\geq1$，存在反射对称实相位目标，使每个允许实现都至少用 $N_{2n}$ 个 CNOT。
+\end{bookresult}
+\begin{itemize}
+\item 明确见证与消去引理：内部已有证明，需公开接口。
+\item 精确等号：还要形式化文献的普适上界。
+\item 门深度、径向势子类的最优性不由此得出。
+\end{itemize}
+\note{公开 Lean 定理的全部量词都在这里的存在性陈述中。实际证明选择了困难目标，但公开结论不命名它。把 $n$ 换成 $dn$ 可以得到整个 $2dn$ 线类的精确门数；额外径向对称可能缩小目标类，不能自动沿用困难目标。}
+\end{frame}
+\appendix
+% Manuscript: Section 4, finite synthesis check
+\begin{frame}{相位合成恒等式}
+$H=\{v:v\cdot\mathbf1=0\}$，$\chi_v(x)=(-1)^{v\cdot x}$。
+\[\theta_*(x)=\frac{\pi}{2^m}\sum_{v\in H}\chi_v(x).\]
+$H^\perp=\{0,\mathbf1\}$ 上总和为 $2^{m-1}$，其余成对抵消。\\[.5em]
+每个非零偶标签旋转 $-\pi/2^{m-1}$，得到
+\[e^{-\mathrm i\pi/2^m}D_*\]
+（网络仍须还原）。
+\note{对不在正交补中的 $x$，选 $u\in H$ 满足 $u\cdot x=1$，在和中配对 $v,v+u$。每次旋转的指数为 $\mathrm i\pi\chi_v(x)/2^m$。省略零标签减去常数一，留下所示整体相位。这没有给出一般最短网络的新算法。}
+\end{frame}
+% Manuscript: Bibliography; Theorem 1, Lemma 1, Corollary 1
+\begin{frame}{来源与后续工作}
+\small
+Ma 与 Zhang，第 4 版：\href{https://doi.org/10.5281/zenodo.23885961}{doi:10.5281/zenodo.23885961}。\\[.5em]
+Huang、Kosugi、Nishi、Matsushita (2024)：\\
+\href{https://doi.org/10.7566/JPSJ.93.054002}{doi:10.7566/JPSJ.93.054002}，Eq. (1)、Algorithm 1、第 6 节。\\[.5em]
+Amy、Azimzadeh、Mosca (2019)：\\
+\href{https://doi.org/10.1088/2058-9565/aad8ca}{doi:10.1088/2058-9565/aad8ca}，第 2 节。\\[.5em]
+Cao、Lu、Nie、Sun、Tian (2025)：\href{https://arxiv.org/abs/2509.10070v1}{arXiv:2509.10070v1}，Theorem 1.1。\\[.5em]
+共享贡献：\href{https://github.com/the-omega-institute/trureturing-requests/issues/229}{明确目标}、\href{https://github.com/the-omega-institute/trureturing-requests/issues/230}{消去接口}、\href{https://github.com/the-omega-institute/trureturing-requests/issues/231}{上界与等号}。
+\note{论文保留 Trureturing 既有下界证明的归属。形式化工作应复用内部已证结果；上界任务只补缺失方向并结合公开存在性下界。贡献者可在自己的 fork 开发，直接向上游 dev 提交聚焦 PR。}
+\end{frame}
+% Manuscript: Exact statement evidence ledger
+\FormalVerification
+\end{document}
